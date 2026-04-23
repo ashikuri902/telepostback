@@ -1,7 +1,35 @@
 export default async function handler(req, res) {
-  const { status, payout } = req.query;
+  const {
+    status,
+    payout,
+    offer_id,
+    offer_name,
+    ip,
+    device,
+    sid,
+    sid2
+  } = req.query;
 
-  const message = `🔥 New Lead!\nStatus: ${status}\nPayout: $${payout}`;
+  const statusText =
+    status == 1 ? "✅ Approved" :
+    status == 2 ? "❌ Rejected" :
+    "⏳ Pending";
+
+  const message = `🎉 Mountaff Congarasocion
+
+🔥 New Lead Received!
+
+📊 Status: ${statusText}
+💰 Payout: $${payout}
+
+🎯 Offer ID: ${offer_id}
+📛 Offer Name: ${offer_name}
+
+🌍 IP Address: ${ip}
+📱 Device: ${device}
+
+🔹 SID1: ${sid}
+🔹 SID2: ${sid2}`;
 
   const botToken = "8324019323:AAEe4Rj9OUtDx32hxe5s1FxwKau_9b3oDtA";
   const chatId = "-1003895839348";
