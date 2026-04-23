@@ -4,30 +4,23 @@ export default async function handler(req, res) {
     payout,
     offer_id,
     offer_name,
-    ip,
-    device,
+    ip_address,
+    ua_target,
     sid,
     sid2
   } = req.query;
 
   const statusText =
-    status == 1 ? "✅ Approved" :
-    status == 2 ? "❌ Rejected" :
-    "⏳ Pending";
+    status == 1 ? "✅ Approved" : status == 2 ? "❌ Rejected" : "⏳ Pending";
 
-  const message = `🎉 Mountaff Congarasocion
-
+  const message = `🎉 Mountaff Congratulation
 🔥 New Lead Received!
-
 📊 Status: ${statusText}
 💰 Payout: $${payout}
-
 🎯 Offer ID: ${offer_id}
 📛 Offer Name: ${offer_name}
-
-🌍 IP Address: ${ip}
-📱 Device: ${device}
-
+🌐 IP Address: ${ip_address}
+📱 Device: ${ua_target}
 🔹 SID1: ${sid}
 🔹 SID2: ${sid2}`;
 
