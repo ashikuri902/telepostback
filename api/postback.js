@@ -1,28 +1,18 @@
 export default async function handler(req, res) {
-  const {
-    status,
-    payout,
-    offer_id,
-    offer_name,
-    ip_address,
-    ua_target,
-    sid,
-    sid2
-  } = req.query;
+  const { status, payout, offer_id, offer_name, ip_address, ua_target, sid, sid2 } = req.query;
 
-  const statusText =
-    status == 1 ? "✅ Approved" : status == 2 ? "❌ Rejected" : "⏳ Pending";
+  const statusText = status == 1 ? "✅ Approved" : (status == 2 ? "❌ Rejected" : "⏳ Pending");
 
   const message = `🎉 Mountaff Congratulation
 🔥 New Lead Received!
 📊 Status: ${statusText}
-💰 Payout: $${payout}
-🎯 Offer ID: ${offer_id}
-📛 Offer Name: ${offer_name}
-🌐 IP Address: ${ip_address}
-📱 Device: ${ua_target}
-🔹 SID1: ${sid}
-🔹 SID2: ${sid2}`;
+💰 Payout: $${payout || "0"}
+🎯 Offer ID: ${offer_id || "N/A"}
+📌 Offer Name: ${offer_name || "N/A"}
+🌐 IP Address: ${ip_address || "N/A"}
+📱 Device: ${ua_target || "N/A"}
+🔹 SID1: ${sid || "N/A"}
+🔹 SID2: ${sid2 || "N/A"}`;
 
   const botToken = "8324019323:AAEe4Rj9OUtDx32hxe5s1FxwKau_9b3oDtA";
   const chatId = "-1003895839348";
